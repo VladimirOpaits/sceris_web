@@ -1,43 +1,43 @@
 ---
-# Скопируй этот файл в _posts/ с именем ГГГГ-ММ-ДД-короткое-название.md
-# (например: _posts/2026-11-10-scvi-tools.md). Папка _templates на сайт не попадает.
+# Copy this file to _posts/ named YYYY-MM-DD-short-name.md
+# (e.g. _posts/2026-11-10-scvi-tools.md). The _templates folder is not published.
 
-title: "Короткий заголовок обзора"
-tldr: "Одно-два предложения: что сделали и почему это интересно."
-tags: [scrnaseq, ml]        # ключи из topics в _config.yml или любые свои
-math: false                 # true — если в тексте есть формулы ($...$, $$...$$)
+title: "Short review title"
+tldr: "One or two sentences: what they did and why it matters."
+tags: [scrnaseq, ml]        # keys from topics in _config.yml, or your own
+math: false                 # true if the text has formulas ($...$, $$...$$)
 
 paper:
-  title: "Полное название статьи"
+  title: "Full paper title"
   authors: "Ivanov I., Petrov P., et al."
-  venue: "Nature Methods"   # журнал / конференция / bioRxiv / arXiv
+  venue: "Nature Methods"   # journal / conference / bioRxiv / arXiv
   year: 2026
-  doi: ""                   # без https://doi.org/, например 10.1038/s41592-...
-  url: ""                   # ссылка на статью (если нет DOI или нужен препринт)
-  code: ""                  # репозиторий с кодом, если есть
-  data: ""                  # ссылка на данные, если есть
+  doi: ""                   # without https://doi.org/, e.g. 10.1038/s41592-...
+  url: ""                   # link to the paper (if no DOI, or for a preprint)
+  code: ""                  # code repository, if any
+  data: ""                  # link to data, if any
 ---
 
-## Контекст
+## Context
 
-Какую проблему решают авторы и почему она важна.
+What problem the authors address and why it matters.
 
-## Что сделали
+## What they did
 
-Ключевая идея метода / эксперимента.
+Key idea of the method / experiment.
 
-## Данные и постановка
+## Data and setup
 
-Датасеты, модели, бейзлайны, метрики.
+Datasets, models, baselines, metrics.
 
-## Результаты
+## Results
 
-Главные цифры и выводы.
+Main numbers and conclusions.
 
-## Ограничения и вопросы
+## Limitations and open questions
 
-Что смущает, что не проверено, где может не сработать.
+What seems off, what is untested, where it may fail.
 
-## Моё мнение
+## My take
 
-Стоит ли читать, кому пригодится, как применить у себя.
+Worth reading? Who it helps, how to apply it.

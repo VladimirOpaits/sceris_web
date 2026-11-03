@@ -1,6 +1,6 @@
 ---
-title: "Пример обзора: как устроен пост"
-tldr: "Демонстрационный пост — показывает все возможности шаблона. Удали его, когда опубликуешь первый настоящий обзор."
+title: "Example review: how a post is structured"
+tldr: "A demo post showing everything the template supports. Delete it once you publish your first real review."
 tags: [scrnaseq, ml]
 math: true
 
@@ -13,23 +13,23 @@ paper:
   code: "https://github.com/scverse/scvi-tools"
 ---
 
-## Контекст
+## Context
 
-Обычный текст пишется в Markdown. **Жирный**, *курсив*, `inline code`,
-[ссылки](https://example.com).
+Plain text is written in Markdown. **Bold**, *italic*, `inline code`,
+[links](https://example.com).
 
-> Цитаты из статьи удобно оформлять так.
+> Quotes from the paper look like this.
 
-## Формулы
+## Formulas
 
-Работают, если в front matter стоит `math: true`. Строчная: $z_n \sim \mathcal{N}(0, I)$,
-блочная:
+These work when front matter has `math: true`. Inline: $z_n \sim \mathcal{N}(0, I)$,
+display:
 
 $$
 x_{ng} \mid z_n, \ell_n \sim \mathrm{ZINB}\big(\ell_n \, \rho_g(z_n), \theta_g, \pi_g(z_n)\big)
 $$
 
-## Код
+## Code
 
 ```python
 import scanpy as sc
@@ -41,23 +41,23 @@ model = scvi.model.SCVI(adata, n_latent=10)
 model.train()
 ```
 
-## Таблица
+## Table
 
-| Метод | ARI | NMI |
+| Method | ARI | NMI |
 |-------|-----|-----|
 | PCA   | 0.61 | 0.70 |
 | scVI  | 0.74 | 0.79 |
 
-## Картинки
+## Images
 
-Положи файл в `assets/img/` и вставь так:
+Put the file in `assets/img/` and embed it like this:
 
 {% raw %}
 ```markdown
-![Подпись]({{ "/assets/img/figure.png" | relative_url }})
+![Caption]({{ "/assets/img/figure.png" | relative_url }})
 ```
 {% endraw %}
 
-## Моё мнение
+## My take
 
-Здесь — личная оценка статьи.
+Personal assessment of the paper goes here.

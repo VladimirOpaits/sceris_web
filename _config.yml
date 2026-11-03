@@ -10,7 +10,7 @@ author:
   github: "VladimirOpaits"   # используется в шапке/подвале
   email: "663vova@gmail.com"                        # можно оставить пустым
 
-lang: ru
+lang: en
 
 # Если репозиторий называется <username>.github.io — оставь как есть.
 # Если это обычный репозиторий (например, sceris_web), GitHub Pages сам
