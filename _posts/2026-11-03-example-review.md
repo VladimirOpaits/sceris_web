@@ -50,13 +50,18 @@ model.train()
 
 ## Images
 
-Put the file in `assets/img/` and embed it like this:
+Put files in `assets/img/reviews/<post-name>/` and embed them with a caption
+(click opens full size):
+
+{% include figure.html src="/assets/img/reviews/example-review/placeholder.svg" caption="Figure 1 from the paper, *with Markdown* in the caption" %}
 
 {% raw %}
-```markdown
-![Caption]({{ "/assets/img/figure.png" | relative_url }})
+```liquid
+{% include figure.html src="/assets/img/reviews/example-review/fig1.png" caption="Figure 1" %}
 ```
 {% endraw %}
+
+Plain Markdown also works: `![alt text](/assets/img/reviews/example-review/fig1.png)`.
 
 ## My take
 

@@ -1,0 +1,27 @@
+---
+layout: default
+title: Build log
+permalink: /build/
+---
+<section class="intro">
+  <h1>Build log</h1>
+  <p>Building in public: work in progress, experiments, small wins and fails.</p>
+</section>
+
+{% assign entries = site.build | sort: "date" | reverse %}
+{% if entries.size > 0 %}
+<div class="build-feed">
+  {% for e in entries %}
+  <article class="build-item">
+    <div class="post-meta">
+      <a href="{{ e.url | relative_url }}"><time datetime="{{ e.date | date_to_xmlschema }}">{{ e.date | date: "%d.%m.%Y" }}</time></a>
+    </div>
+    {% if e.title %}<h2 class="build-item-title"><a href="{{ e.url | relative_url }}">{{ e.title }}</a></h2>{% endif %}
+    <div class="post-content">{{ e.content }}</div>
+    {% include gallery.html images=e.images %}
+  </article>
+  {% endfor %}
+</div>
+{% else %}
+<p>Nothing here yet.</p>
+{% endif %}

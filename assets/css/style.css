@@ -217,3 +217,35 @@ pre {
 
 /* MathJax: длинные формулы скроллятся, а не ломают вёрстку */
 mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+
+/* ---------- Images ---------- */
+
+.figure { margin: 1.5rem 0; }
+.figure a { display: block; }
+.figure img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.figure figcaption { color: var(--muted); font-size: 0.88rem; margin-top: 0.4rem; text-align: center; }
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0.75rem;
+  margin: 1.25rem 0;
+}
+.gallery.single { grid-template-columns: 1fr; }
+.gallery .figure { margin: 0; }
+.gallery:not(.single) .figure img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+
+/* ---------- Build log ---------- */
+
+.build-feed { margin-top: 2rem; }
+.build-item { padding: 1.5rem 0; border-top: 1px solid var(--border); }
+.build-item .post-meta a { color: var(--muted); }
+.build-item-title { font-size: 1.2rem; margin: 0.25rem 0 0.5rem; }
+.build-item .post-content > :first-child { margin-top: 0; }
+.build-links { padding-left: 1.2rem; font-size: 0.92rem; }

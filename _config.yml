@@ -33,8 +33,20 @@ plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
 
+# Build in public: отдельная коллекция в папке _build/
+# Адреса: /build/2026/11/03/slug/
+collections:
+  build:
+    output: true
+    permalink: /build/:year/:month/:day/:title/
+
 # Значения по умолчанию для всех постов
 defaults:
+  - scope:
+      path: ""
+      type: build
+    values:
+      layout: build-entry
   - scope:
       path: ""
       type: posts

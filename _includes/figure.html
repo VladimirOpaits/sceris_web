@@ -1,0 +1,21 @@
+{%- comment -%}
+  Image with optional caption. Click opens the full-size file.
+  Params:
+    src     — path from site root (/assets/img/...) or a full https:// URL
+    alt     — alt text (defaults to caption)
+    caption — caption under the image (Markdown allowed)
+    width   — optional max width, e.g. "60%" or "400px"
+{%- endcomment -%}
+{%- if include.src contains '://' -%}
+  {%- assign fig_src = include.src -%}
+{%- else -%}
+  {%- assign fig_src = include.src | relative_url -%}
+{%- endif -%}
+<figure class="figure">
+  <a href="{{ fig_src }}" target="_blank" rel="noopener">
+    <img src="{{ fig_src }}" alt="{{ include.alt | default: include.caption | strip_html | remove: '*' | remove: '_' | escape }}" loading="lazy"{% if include.width %} style="max-width: {{ include.width }}"{% endif %}>
+  </a>
+  {%- if include.caption %}
+  <figcaption>{{ include.caption | markdownify | remove: '<p>' | remove: '</p>' | strip }}</figcaption>
+  {%- endif %}
+</figure>
