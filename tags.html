@@ -1,0 +1,30 @@
+---
+layout: page
+title: Темы
+permalink: /tags/
+---
+{% comment %}
+  GitHub Pages не позволяет генерировать отдельную страницу на каждый тег
+  без сторонних плагинов, поэтому все темы на одной странице с якорями.
+{% endcomment %}
+{% assign tags_sorted = site.tags | sort %}
+
+<ul class="tag-list tag-index">
+  {% for tag in tags_sorted %}
+    <li><a class="tag" href="#{{ tag[0] | slugify }}">{{ site.topics[tag[0]] | default: tag[0] }} <span class="tag-count">{{ tag[1].size }}</span></a></li>
+  {% endfor %}
+</ul>
+
+{% for tag in tags_sorted %}
+<section class="tag-section" id="{{ tag[0] | slugify }}">
+  <h2>{{ site.topics[tag[0]] | default: tag[0] }}</h2>
+  <ul class="post-list compact">
+    {% for post in tag[1] %}
+    <li class="post-item">
+      <time class="post-date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%d.%m.%Y" }}</time>
+      <div class="post-item-body"><a class="post-link" href="{{ post.url | relative_url }}">{{ post.title }}</a></div>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endfor %}

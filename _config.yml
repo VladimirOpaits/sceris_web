@@ -1,0 +1,65 @@
+# ------------------------------------------------------------
+# Основные настройки сайта. После изменения этого файла
+# локальный `jekyll serve` нужно перезапустить.
+# ------------------------------------------------------------
+
+title: "Paper Notes"
+description: "Short paper reviews"
+author:
+  name: "Vladimir Opaits"
+  github: "VladimirOpaits"   # используется в шапке/подвале
+  email: "663vova@gmail.com"                        # можно оставить пустым
+
+lang: ru
+
+# Если репозиторий называется <username>.github.io — оставь как есть.
+# Если это обычный репозиторий (например, sceris_web), GitHub Pages сам
+# подставит baseurl. Для локального запуска с подпутём можно раскомментировать:
+# baseurl: "/sceris_web"
+# url: "https://your-github-username.github.io"
+
+# Формат постов: /reviews/2026/11/03/slug/
+permalink: /reviews/:year/:month/:day/:title/
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  math_engine: mathjax
+  syntax_highlighter: rouge
+
+# Плагины — только из белого списка GitHub Pages
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Значения по умолчанию для всех постов
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: page
+
+# Темы/рубрики. Ключ используется в tags у поста, label — то, что видно на сайте.
+# Можно добавлять свои; теги, которых здесь нет, тоже работают (покажутся как есть).
+topics:
+  ml: "Machine Learning"
+  bio: "Biology"
+  ds: "Data Science"
+  bioinf: "Bioinformatics"
+  scrnaseq: "scRNA-seq"
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - _templates
+  - .bundle
+  - .jekyll-cache

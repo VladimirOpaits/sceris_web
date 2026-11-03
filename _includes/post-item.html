@@ -1,0 +1,13 @@
+{% comment %} Карточка поста в списке. Использование: include post-item.html с параметром post=post {% endcomment %}
+{% assign p = include.post %}
+<li class="post-item">
+  <time class="post-date" datetime="{{ p.date | date_to_xmlschema }}">{{ p.date | date: "%d.%m.%Y" }}</time>
+  <div class="post-item-body">
+    <a class="post-link" href="{{ p.url | relative_url }}">{{ p.title }}</a>
+    {% if p.paper.venue or p.paper.year %}
+      <div class="post-venue">{{ p.paper.venue }}{% if p.paper.venue and p.paper.year %}, {% endif %}{{ p.paper.year }}</div>
+    {% endif %}
+    {% if p.tldr %}<p class="post-tldr">{{ p.tldr }}</p>{% endif %}
+    {% include tag-list.html tags=p.tags %}
+  </div>
+</li>
