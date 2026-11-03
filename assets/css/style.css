@@ -74,7 +74,9 @@ hr { border: 0; border-top: 1px solid var(--border); margin: 2rem 0; }
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
-.site-title { font-weight: 700; font-size: 1.1rem; color: var(--fg); }
+.site-title { display: inline-flex; align-items: center; gap: 0.45rem; font-weight: 700; font-size: 1.1rem; color: var(--fg); }
+.site-title:hover { text-decoration: none; }
+.site-logo { display: block; width: 28px; height: 28px; }
 .site-nav { display: flex; gap: 1.25rem; }
 .site-nav a { color: var(--muted); }
 .site-nav a:hover { color: var(--fg); }
