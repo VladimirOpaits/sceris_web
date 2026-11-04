@@ -1,0 +1,30 @@
+---
+layout: null
+permalink: /llms.txt
+sitemap: false
+---
+{%- assign topic_names = "" | split: "" -%}
+{%- for t in site.topics -%}{%- assign topic_names = topic_names | push: t[1] -%}{%- endfor -%}
+# {{ site.title }}
+
+> {{ site.description }} by {{ site.author.name }}. Topics: {{ topic_names | join: ", " }}.
+
+Each review has a "Paper" card with the original title, authors, venue, year and DOI, followed by a TL;DR and the author's own take.
+
+## Reviews
+
+{% for post in site.posts %}
+{%- assign d = post.description | default: post.tldr -%}
+- [{{ post.title }}]({{ post.url | absolute_url }}){% if d %}: {{ d }}{% endif %}{% if post.paper.title %} Reviewed paper: "{{ post.paper.title }}"{% if post.paper.authors %}, {{ post.paper.authors }}{% endif %}{% if post.paper.year %} ({{ post.paper.year }}){% endif %}.{% endif %}
+{% endfor %}
+## Build log
+{% assign entries = site.build | sort: "date" | reverse %}
+{%- for e in entries %}
+- [{{ e.title }}]({{ e.url | absolute_url }}){% if e.description %}: {{ e.description }}{% endif %}
+{%- endfor %}
+
+## Optional
+
+- [About the author]({{ '/about/' | absolute_url }})
+- [RSS feed]({{ '/feed.xml' | absolute_url }})
+- [Sitemap]({{ '/sitemap.xml' | absolute_url }})

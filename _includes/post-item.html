@@ -7,7 +7,8 @@
     {% if p.paper.venue or p.paper.year %}
       <div class="post-venue">{{ p.paper.venue }}{% if p.paper.venue and p.paper.year %}, {% endif %}{{ p.paper.year }}</div>
     {% endif %}
-    {% if p.tldr %}<p class="post-tldr">{{ p.tldr }}</p>{% endif %}
+    {% assign summary = p.description | default: p.tldr %}
+    {% if summary %}<p class="post-tldr">{{ summary }}</p>{% endif %}
     {% include tag-list.html tags=p.tags %}
   </div>
 </li>

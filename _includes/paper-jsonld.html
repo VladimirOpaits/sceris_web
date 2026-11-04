@@ -1,0 +1,33 @@
+{%- comment -%}
+  Structured data about the reviewed paper (schema.org ScholarlyArticle).
+  Helps search engines and AI bots link the review to the original paper.
+{%- endcomment -%}
+{%- if page.paper and page.paper.title -%}
+{%- assign paper = page.paper -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "name": {{ paper.title | jsonify }}
+  {%- if paper.authors %},
+  "author": {{ paper.authors | jsonify }}{% endif %}
+  {%- if paper.year %},
+  "datePublished": "{{ paper.year }}"{% endif %}
+  {%- if paper.venue %},
+  "isPartOf": { "@type": "Periodical", "name": {{ paper.venue | jsonify }} }{% endif %}
+  {%- if paper.doi and paper.doi != "" %},
+  "identifier": { "@type": "PropertyValue", "propertyID": "DOI", "value": {{ paper.doi | jsonify }} },
+  "sameAs": "https://doi.org/{{ paper.doi }}"{% endif %}
+  {%- if paper.url and paper.url != "" %},
+  "url": {{ paper.url | jsonify }}{% endif %}
+  {%- if paper.code and paper.code != "" %},
+  "codeRepository": {{ paper.code | jsonify }}{% endif %},
+  "subjectOf": {
+    "@type": "BlogPosting",
+    "headline": {{ page.title | jsonify }},
+    "url": "{{ page.url | absolute_url }}",
+    "author": { "@type": "Person", "name": {{ site.author.name | jsonify }} }
+  }
+}
+</script>
+{%- endif -%}

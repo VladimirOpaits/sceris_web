@@ -3,8 +3,9 @@
 # (e.g. _posts/2026-11-10-scvi-tools.md). The _templates folder is not published.
 
 title: "Short review title"
-tldr: "One or two sentences: what they did and why it matters."
+description: "One or two sentences: what they did and why it matters."  # shown as TL;DR, used by search engines and AI bots
 tags: [scrnaseq, ml]        # keys from topics in _config.yml, or your own
+# last_modified_at: 2026-11-20   # set when you substantially update the post (freshness for search and AI bots)
 math: false                 # true if the text has formulas ($...$, $$...$$)
 
 paper:

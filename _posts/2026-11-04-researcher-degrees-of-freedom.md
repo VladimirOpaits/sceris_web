@@ -1,5 +1,6 @@
 ---
 title: "The best explanation on why data analysis protocols should be preregistered, or how I finally fell in love with statistics"
+description: "Gelman and Loken's essay on the garden of forking paths: why flexible analysis choices inflate false positives even without p-hacking, why a flat prior hides behind verbal explanations, and why preregistration matters."
 tags: [data analysis, statistics, frequentist statistics, bayesian inference]
 math: true
 

@@ -1,19 +1,22 @@
 {%- comment -%}
   Image grid from front matter. Params:
     images — list of paths (/assets/img/...) or URLs,
-             or objects with src / caption
+             or objects with src / caption / alt
+    title  — fallback alt text (page title)
 {%- endcomment -%}
 {%- if include.images and include.images.size > 0 -%}
 <div class="gallery{% if include.images.size == 1 %} single{% endif %}">
   {%- for item in include.images -%}
     {%- if item.src -%}
-      {%- assign g_src = item.src -%}{%- assign g_cap = item.caption -%}
+      {%- assign g_src = item.src -%}{%- assign g_cap = item.caption -%}{%- assign g_alt = item.alt -%}
     {%- else -%}
-      {%- assign g_src = item -%}{%- assign g_cap = nil -%}
+      {%- assign g_src = item -%}{%- assign g_cap = nil -%}{%- assign g_alt = nil -%}
     {%- endif -%}
+    {%- capture g_fallback -%}{{ include.title }} — image {{ forloop.index }}{%- endcapture -%}
+    {%- assign g_alt = g_alt | default: g_cap | default: g_fallback -%}
     {%- unless g_src contains '://' -%}{%- assign g_src = g_src | relative_url -%}{%- endunless -%}
     <figure class="figure">
-      <a href="{{ g_src }}" target="_blank" rel="noopener"><img src="{{ g_src }}" alt="{{ g_cap | default: '' | escape }}" loading="lazy"></a>
+      <a href="{{ g_src }}" target="_blank" rel="noopener"><img src="{{ g_src }}" alt="{{ g_alt | strip_html | escape }}" loading="lazy"></a>
       {%- if g_cap %}<figcaption>{{ g_cap }}</figcaption>{% endif -%}
     </figure>
   {%- endfor -%}

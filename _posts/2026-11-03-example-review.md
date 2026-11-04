@@ -1,6 +1,6 @@
 ---
 title: "Example review: how a post is structured"
-tldr: "A demo post showing everything the template supports. Delete it once you publish your first real review."
+description: "A demo post showing everything the template supports. Delete it once you publish your first real review."
 tags: [scrnaseq, ml]
 math: true
 

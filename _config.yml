@@ -11,12 +11,17 @@ author:
   email: "663vova@gmail.com"                        # можно оставить пустым
 
 lang: en
+timezone: Europe/Madrid
 
 # Если репозиторий называется <username>.github.io — оставь как есть.
 # Если это обычный репозиторий (например, sceris_web), GitHub Pages сам
 # подставит baseurl. Для локального запуска с подпутём можно раскомментировать:
 # baseurl: "/sceris_web"
-# url: "https://your-github-username.github.io"
+# Полный адрес сайта: нужен для canonical, sitemap, RSS и JSON-LD (иначе GitHub подставит http://)
+url: "https://sceris.life"
+
+# Логотип для JSON-LD (publisher.logo) и превью ссылок
+logo: /assets/icons/apple-touch-icon.png
 
 # Формат постов: /reviews/2026/11/03/slug/
 permalink: /reviews/:year/:month/:day/:title/

@@ -31,15 +31,16 @@ layout: default
   </aside>
   {% endif %}
 
-  {% if page.tldr %}
-  <div class="tldr"><strong>TL;DR:</strong> {{ page.tldr }}</div>
+  {% assign summary = page.description | default: page.tldr %}
+  {% if summary %}
+  <div class="tldr"><strong>TL;DR:</strong> {{ summary }}</div>
   {% endif %}
 
   <div class="post-content">
     {{ content }}
   </div>
 
-  {% include gallery.html images=page.images %}
+  {% include gallery.html images=page.images title=page.title %}
 
   <nav class="post-nav">
     {% if page.previous %}

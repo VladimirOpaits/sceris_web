@@ -4,6 +4,7 @@
 
 title: "What I did / what happened"
 date: 2026-11-10            # must match the date in the file name
+# description: "One-line summary"  # optional: for search engines, AI bots, llms.txt
 
 # Optional: images shown as a grid under the text.
 # Plain paths, or objects with src + caption.

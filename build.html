@@ -18,7 +18,7 @@ permalink: /build/
     </div>
     {% if e.title %}<h2 class="build-item-title"><a href="{{ e.url | relative_url }}">{{ e.title }}</a></h2>{% endif %}
     <div class="post-content">{{ e.content }}</div>
-    {% include gallery.html images=e.images %}
+    {% include gallery.html images=e.images title=e.title %}
   </article>
   {% endfor %}
 </div>
